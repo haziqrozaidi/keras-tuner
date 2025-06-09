@@ -1,0 +1,2 @@
+Model,Accuracy,Precision,Recall,F1_Score,Epochs_Trained,Batch_Size,LSTM_Units,LSTM_Dropout,LSTM_Recurrent_Dropout,Dense_Units,Dense_Dropout,Learning_Rate
+Tuned LSTM,0.6374269127845764,0.5540166204986149,0.6374269005847953,0.5838248290241991,5,32,160,0.1,0.4,128,0.30000000000000004,0.0013858703174839794

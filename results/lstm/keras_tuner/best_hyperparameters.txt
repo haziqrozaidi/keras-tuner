@@ -1,0 +1,6 @@
+LSTM Units: 160
+LSTM Dropout: 0.1
+LSTM Recurrent Dropout: 0.4
+Dense Units: 128
+Dense Dropout: 0.30000000000000004
+Learning Rate: 0.0013858703174839794
