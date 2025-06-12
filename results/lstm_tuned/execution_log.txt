@@ -1,0 +1,19 @@
+Analysis started: 2025-06-12 14:53:58.709064
+Analysis completed: 2025-06-12 15:21:12.809466
+Total execution time: 0 days 00:27:14.100402
+Number of classes: 3
+Max sequence length: 703
+Training samples: 681
+Testing samples: 171
+Class distribution: [74, 279, 328]
+Final epochs: 4
+Final accuracy: 0.7193
+Final loss: 0.7364
+
+Best Hyperparameters:
+lstm_units: 192
+lstm_dropout: 0.2
+lstm_recurrent_dropout: 0.0
+dense_units: 64
+dense_dropout: 0.0
+learning_rate: 0.0047491708051034115
