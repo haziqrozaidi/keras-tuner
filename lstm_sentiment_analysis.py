@@ -99,6 +99,43 @@ def predict_sentiment(text, model, tokenizer, sentiment_mapping, max_len, num_cl
     
     return sentiment, float(confidence)
 
+def plot_model_metrics(accuracy, precision, recall, f1, output_path):
+    """
+    Creates a bar chart showing the model's performance metrics.
+    
+    Args:
+        accuracy: Model accuracy value
+        precision: Model precision score
+        recall: Model recall score
+        f1: Model F1-score
+        output_path: Path to save the chart
+    """
+    metrics = ['Accuracy', 'Precision', 'Recall', 'F1-Score']
+    values = [accuracy, precision, recall, f1]
+    
+    # Convert to percentage for better visualization
+    values_percent = [val * 100 for val in values]
+    
+    plt.figure(figsize=(10, 6))
+    bars = plt.bar(metrics, values_percent, color=['#2C7BB6', '#D7191C', '#FDAE61', '#1A9641'])
+    
+    # Add value labels on top of the bars
+    for bar in bars:
+        height = bar.get_height()
+        plt.text(bar.get_x() + bar.get_width()/2., height + 1,
+                 f'{height:.2f}%', ha='center', va='bottom', fontweight='bold')
+    
+    plt.title('LSTM Model Performance Metrics with Current Hyperparameters', fontsize=16)
+    plt.ylabel('Percentage (%)', fontsize=12)
+    plt.ylim(0, 105)  # Set y-axis limit to accommodate the labels
+    
+    # Add grid lines for better readability
+    plt.grid(axis='y', linestyle='--', alpha=0.7)
+    
+    plt.tight_layout()
+    plt.savefig(output_path)
+    print(f"Performance metrics visualization saved to {output_path}")
+
 if __name__ == "__main__":
     # Log execution time
     start_time = pd.Timestamp.now()
@@ -213,6 +250,15 @@ if __name__ == "__main__":
     
     plt.tight_layout()
     plt.savefig(os.path.join(output_dir, 'model_performance.png'))
+    
+    # NEW: Create and save a performance metrics bar chart
+    plot_model_metrics(
+        lstm_accuracy, 
+        lstm_precision, 
+        lstm_recall, 
+        lstm_f1, 
+        os.path.join(output_dir, 'performance_metrics_chart.png')
+    )
     
     # 10. Predict sentiment for sample tweets
     sample_tweets = [
