@@ -1,0 +1,6 @@
+lstm_units: 96
+lstm_dropout: 0.1
+lstm_recurrent_dropout: 0.30000000000000004
+dense_units: 32
+dense_dropout: 0.4
+learning_rate: 0.0011116670239494002
